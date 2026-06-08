@@ -6,7 +6,7 @@ TERM = "xterm-256color"
 WINIT_X11_SCALE_FACTOR = "1"
 
 [font.normal]
-family = "Hack"
+family = "Hack Nerd Font Mono"
 
 [window]
 opacity = 1
@@ -77,3 +77,8 @@ color = "#fab387"
 index = 17
 color = "#f5e0dc"
 
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
