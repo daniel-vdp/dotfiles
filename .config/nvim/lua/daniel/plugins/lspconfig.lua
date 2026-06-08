@@ -54,6 +54,16 @@ return {
 			root_markers = { "package.json", "tsconfig.json", ".git" },
 			on_attach = on_attach,
 			capabilities = capabilities,
+			before_init = function(_, config)
+				local root = config.root_dir
+				if not root then return end
+				local sdk = root .. "/.yarn/sdks/typescript/lib"
+				if vim.fn.isdirectory(sdk) == 1 then
+					config.init_options = vim.tbl_deep_extend("force", config.init_options or {}, {
+						tsserver = { path = sdk .. "/tsserver.js" },
+					})
+				end
+			end,
 			settings = {
 				typescript = {
 					inlayHints = {
